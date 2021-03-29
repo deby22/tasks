@@ -8,6 +8,5 @@ defmodule TaskApp.Repo.Migrations.CreateTasks do
 
       timestamps()
     end
-
   end
 end

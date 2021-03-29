@@ -2,6 +2,9 @@ defmodule TaskAppWeb.Router do
   use TaskAppWeb, :router
   use Pow.Phoenix.Router
 
+  use Pow.Extension.Phoenix.Router,
+    extensions: [PowResetPassword]
+
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
@@ -23,8 +26,8 @@ defmodule TaskAppWeb.Router do
     pipe_through :browser
 
     pow_routes()
+    pow_extension_routes()
   end
-
 
   scope "/", TaskAppWeb do
     pipe_through :browser

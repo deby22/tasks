@@ -75,6 +75,7 @@ defmodule TaskAppWeb.TaskControllerTest do
     test "deletes chosen task", %{conn: conn, task: task} do
       conn = delete(conn, Routes.task_path(conn, :delete, task))
       assert redirected_to(conn) == Routes.task_path(conn, :index)
+
       assert_error_sent 404, fn ->
         get(conn, Routes.task_path(conn, :show, task))
       end
